@@ -52,6 +52,7 @@ pipeline {
                             sh "terraform plan -var='environment=${TF_VAR_environment}' -out=tfplan"
                             break
                         case 'apply':
+                            sh "terraform plan -var='environment=${TF_VAR_environment}' -out=tfplan"
                             sh 'terraform apply -auto-approve tfplan'
                             break
                         case 'destroy':
