@@ -61,8 +61,7 @@ pipeline {
                             sh 'terraform apply -auto-approve tfplan'
                             break
                         case 'destroy':
-                            sh "terraform plan -var-file='${TF_VAR_environment}.tfvars' -out=tfplan"
-                            sh 'terraform destroy -auto-approve tfplan'
+                            sh "terraform destroy -var-file='${TF_VAR_environment}.tfvars' -auto-approve"
                             break
                         default:
                             error "Invalid Terraform operation selected"
