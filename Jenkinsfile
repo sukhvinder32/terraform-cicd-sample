@@ -54,10 +54,10 @@ pipeline {
                     // Run Terraform based on the selected operation
                     switch(params.TERRAFORM_OPERATION) {
                         case 'plan':
-                            sh "terraform plan -var='environment=${TF_VAR_environment}' -out=tfplan"
+                            sh "terraform plan -var-file='${TF_VAR_environment}.tfvars' -out=tfplan"
                             break
                         case 'apply':
-                            sh "terraform plan -var='environment=${TF_VAR_environment}' -out=tfplan"
+                            sh "terraform plan -var-file='${TF_VAR_environment}.tfvars' -out=tfplan"
                             sh 'terraform apply -auto-approve tfplan'
                             break
                         case 'destroy':
