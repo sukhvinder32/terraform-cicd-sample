@@ -28,7 +28,7 @@ resource "aws_instance" "example" {
   key_name      = var.key_name
 
   tags = {
-    Name = "example-instance"
+    Name = var.name
   }
 
   user_data = <<-EOF
